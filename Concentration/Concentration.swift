@@ -39,7 +39,6 @@ struct Concentration
                     score += 2
                 }
                 cards[index].isFaceUp = true
-                //indexOfOneAndOnlyFaceUpCard = nil
                 
                 if (cards[matchIndex].isSeen && !cards[matchIndex].isMatched) {
                     score -= 1
@@ -51,12 +50,6 @@ struct Concentration
                 cards[matchIndex].isSeen = true
             } else {
                 // either no cards or 2 cards are face up
-                /*
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
-                */
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }

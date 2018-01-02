@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction private func touchCard(_ sender: UIButton) {
-        //flipCount += 1
         if let cardNumber = cardButtons.index(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
@@ -67,20 +66,16 @@ class ViewController: UIViewController {
         "Machines": ["🚒", "🏍", "🚌", "🚑", "🚔", "✈️", "🚀", "🛰"],
         "Objects": ["⌚️", "💻", "🎥", "📱", "📀", "⌛️", "📡", "🔦"]]
     
-    //var emojiChoices = ["👻", "🎃", "🔥", "🌈", "🍏","⚽️","🍷","🍭"]
     private var emojiChoices = [String]()
     
     override func viewDidLoad() {
-        //let index = Int(arc4random_uniform(UInt32(emojiChoicesWithThemes.count)))
         emojiChoices = Array(emojiChoicesWithThemes.values)[emojiChoicesWithThemes.count.arc4random]
-        // emojiChoices = emojiChoicesWithThemes["Animals"]!
     }
     
     private var emoji = [Card:String]()
 
     private func emoji(for card: Card) -> String {
         if emoji[card] == nil, emojiChoices.count > 0 {
-            //let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             emoji[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
         
@@ -93,8 +88,6 @@ class ViewController: UIViewController {
         scoreCount = 0
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         updateViewFromModel()
-        // emojiChoices = ["👻", "🎃", "🔥", "🌈", "🍏","⚽️","🍷","🍭"]
-        //let index = Int(arc4random_uniform(UInt32(emojiChoicesWithThemes.count)))
         emojiChoices = Array(emojiChoicesWithThemes.values)[emojiChoicesWithThemes.count.arc4random]
     }
 }
